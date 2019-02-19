@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 
 android {
     compileSdkVersion 28
@@ -35,5 +37,6 @@ dependencies {
     implementation 'com.lodz:imageloader-kt:1.0.6'
 
 
-
+    api('com.github.hotchemi:permissionsdispatcher:3.1.0')
+    kapt 'com.github.hotchemi:permissionsdispatcher-processor:3.1.0'
 }
