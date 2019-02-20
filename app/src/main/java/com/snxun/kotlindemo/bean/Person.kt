@@ -5,7 +5,7 @@ package com.snxun.kotlindemo.bean
  *
  */
 
-class Person(val a:Int){
+data class Person(val a:Int){
      val age:Int
         get() {
             return 2+a

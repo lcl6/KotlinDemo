@@ -34,9 +34,9 @@ fun main(args: Array<String>) {
 
     val animal : Animal = Cat()
 
-    println("-------------")
-    println("成员函数：${animal.shout()}")
-    println("扩展函数：${animal.eat()}")
+//    println("-------------")
+//    println("成员函数：${animal.shout()}")
+//    println("扩展函数：${animal.eat()}")
 
 
 

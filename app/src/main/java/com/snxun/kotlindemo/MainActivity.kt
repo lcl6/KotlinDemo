@@ -1,69 +1,58 @@
 package com.snxun.kotlindemo
 
-import android.Manifest
-import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
-import com.lodz.android.corekt.utils.ToastUtils
+import butterknife.BindView
+import butterknife.ButterKnife
 import com.lodz.android.pandora.base.activity.BaseActivity
-import permissions.dispatcher.*
 
 /**
  * Created by liancl on 2019/2/13.
  *
  */
-@RuntimePermissions
 class MainActivity : BaseActivity(){
+
+        @BindView(R.id.tv_btn)
+        lateinit var  tv : TextView
+
+
     override fun getLayoutId(): Int {
        return R.layout. activity_main
     }
+    companion object {
+        fun start(context: Context){
+            var intent = Intent(context,MainActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
+
+    override fun findViews(savedInstanceState: Bundle?) {
+        super.findViews(savedInstanceState)
+        ButterKnife.bind(this)
+
+    }
+
 
     override fun initData() {
         super.initData()
         goneTitleBar()
         showStatusCompleted()
-        findViewById<TextView>(R.id.tv_btn).setOnClickListener {
-
+        tv.setOnClickListener {
             mListener?.invoke("你好")
         }
 
         setOnMyClick { mag ->
             Toast.makeText(this,mag,Toast.LENGTH_LONG).show()
         }
-        needWithPermissionCheck()
-
 
     }
     var mListener: ((String) -> Unit)? =null
 
     fun setOnMyClick(listener: (mag:String)->Unit){
         mListener=listener
-    }
-
-
-    @NeedsPermission(Manifest.permission.CAMERA)
-    fun need() {
-        ToastUtils.showShort(getContext(),"need")
-    }
-
-    @SuppressLint("NeedOnRequestPermissionsResult")
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        onRequestPermissionsResult(requestCode, grantResults)
-    }
-
-    @OnShowRationale(Manifest.permission.CAMERA)
-    fun showRation(request: PermissionRequest) {
-        request.proceed()
-    }
-
-    @OnPermissionDenied(Manifest.permission.CAMERA)
-    fun deny() {
-        needWithPermissionCheck()
-    }
-
-    @OnNeverAskAgain(Manifest.permission.CAMERA)
-    fun neverAsk() {
     }
 
 
