@@ -8,6 +8,7 @@ import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.lodz.android.pandora.base.activity.BaseActivity
+import com.snxun.kotlindemo.ui.ViewPageActivity
 
 /**
  * Created by liancl on 2019/2/13.
@@ -17,6 +18,8 @@ class MainActivity : BaseActivity(){
 
         @BindView(R.id.tv_btn)
         lateinit var  tv : TextView
+    @BindView(R.id.tv_btn_fragment)
+    lateinit var  tvFragment : TextView
 
 
     override fun getLayoutId(): Int {
@@ -33,6 +36,13 @@ class MainActivity : BaseActivity(){
         super.findViews(savedInstanceState)
         ButterKnife.bind(this)
 
+    }
+
+    override fun setListeners() {
+        super.setListeners()
+        tvFragment.setOnClickListener {
+            ViewPageActivity.start(getContext())
+        }
     }
 
 

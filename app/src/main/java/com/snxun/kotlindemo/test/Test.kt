@@ -32,11 +32,31 @@ fun main(args: Array<String>) {
 
     // 测试成员函数和扩展函数
 
-    val animal : Animal = Cat()
+//    val animal : Animal = Cat()
 
 //    println("-------------")
 //    println("成员函数：${animal.shout()}")
 //    println("扩展函数：${animal.eat()}")
+
+//    ArrayList<String>().apply {
+//        add("aaaa")
+//        add("aaaa")
+//        add("aaaa")
+//        print(message = "this = "+this)
+//    }.let {
+//        print(it)
+//    }
+
+
+    with(ArrayList<String>()){
+        add("bbbb")
+        add("bbbb")
+        add("bbbb")
+        print(this)
+    }.let {
+        print(it)
+    }
+
 
 
 
