@@ -47,6 +47,10 @@ class FriendFragment : BaseInterFaceFragment() {
 
     }
 
+    override fun getNpnrFragTag(): String {
+        return TAG_FriendFragment
+    }
+
     override fun setListeners(view: View) {
         super.setListeners(view)
         clPyq.setOnClickListener {

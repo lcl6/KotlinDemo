@@ -16,7 +16,8 @@ class MyFragment : BaseInterFaceFragment() {
     @BindView(R.id.tv_click_my)
     lateinit var clMy :TextView
 
-
+    @BindView(R.id.tv_click_my2)
+    lateinit var clMy2 :TextView
 
     companion object {
         val TAG_MyFragment : String="cccc"
@@ -44,11 +45,26 @@ class MyFragment : BaseInterFaceFragment() {
         super.initData(view)
     }
 
+    override fun getNpnrFragTag(): String {
+        return TAG_MyFragment
+    }
+
+    override fun getWpwrFragTag(): String {
+        return TAG_MyFragment
+    }
+
+
+
+
     override fun setListeners(view: View) {
         super.setListeners(view)
 
         clMy.setOnClickListener {
             functionManager.invokeFunction(TAG_MyFragment)
+        }
+
+        clMy2.setOnClickListener {
+            functionManager.invokeFunction(TAG_MyFragment,"bbbb",String::class.java)
         }
 
     }

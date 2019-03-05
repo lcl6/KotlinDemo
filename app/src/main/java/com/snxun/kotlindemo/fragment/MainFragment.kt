@@ -43,8 +43,13 @@ class MainFragment : BaseInterFaceFragment() {
 
         goneTitleBar()
 
+
+
     }
 
+    override fun getWpwrFragTag(): String {
+        return TAG_MainFragment
+    }
 
     override fun setListeners(view: View) {
         super.setListeners(view)

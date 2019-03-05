@@ -9,21 +9,17 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.google.android.material.tabs.TabLayout
 import com.lodz.android.corekt.utils.ToastUtils
-import com.lodz.android.pandora.base.activity.BaseActivity
 import com.snxun.kotlindemo.R
 import com.snxun.kotlindemo.adapter.TabAdapter
-import com.snxun.kotlindemo.base.BaseInterFaceFragment
-import com.snxun.kotlindemo.bean.func.FunctionNoParamNoResult
-import com.snxun.kotlindemo.bean.func.FunctionWithParamWithResult
+import com.snxun.kotlindemo.base.BaseInterActivity
 import com.snxun.kotlindemo.fragment.FriendFragment
 import com.snxun.kotlindemo.fragment.MainFragment
 import com.snxun.kotlindemo.fragment.MyFragment
-import com.snxun.kotlindemo.manager.FunctionManager
 
 /**
  * Created by liancl on 2019/2/26.
  */
-class ViewPageActivity :BaseActivity() {
+class ViewPageActivity : BaseInterActivity() {
 
 
     @BindView(R.id.vp)
@@ -86,24 +82,50 @@ class ViewPageActivity :BaseActivity() {
     }
 
 
-    fun toImplementsInterface(tag : String ){
-        val baseFrag = supportFragmentManager.findFragmentByTag(tag) as BaseInterFaceFragment
-        val functionManager = FunctionManager.getInstance()
+    override fun setListeners() {
+        super.setListeners()
 
-        baseFrag.setFunctionManger(functionManager.addFunction( object :FunctionNoParamNoResult(FriendFragment.TAG_FriendFragment){
-            override fun function() {
-                ToastUtils.showShort(getContext(),"点击了朋友")
-            }
-        }).addFunction(object :FunctionWithParamWithResult<Any,Any>(MainFragment.TAG_MainFragment){
-            override fun function(param: Any): String {
-
-                ToastUtils.showShort(getContext(),"点击了main")
-                ToastUtils.showShort(getContext(),"点击了main"+param.toString())
-                return "哈哈哈"
+        listener=object:Listener{
+            override fun npnr(npnr:String) {
+                ToastUtils.showShort(getContext(),"调用了npnr")
             }
 
-        }))
+            override fun wpnr(wpnr:String) {
+                ToastUtils.showShort(getContext(),"调用了wpnr")
+            }
 
+            override fun wpwr(param:Any,wpwr:String) {
+                ToastUtils.showShort(getContext(),"调用了wpwr"+param?.toString())
+            }
+
+            override fun npwr(npwr:String) {
+                ToastUtils.showShort(getContext(),"调用了npwr")
+            }
+
+        }
     }
+
+
+
+
+//    fun toImplementsInterface(tag : String ){
+//        val baseFrag = supportFragmentManager.findFragmentByTag(tag) as BaseInterFaceFragment
+//        val functionManager = FunctionManager.getInstance()
+//
+//        baseFrag.setFunctionManger(functionManager.addFunction( object :FunctionNoParamNoResult(FriendFragment.TAG_FriendFragment){
+//            override fun function() {
+//                ToastUtils.showShort(getContext(),"点击了朋友")
+//            }
+//        }).addFunction(object :FunctionWithParamWithResult<Any,Any>(MainFragment.TAG_MainFragment){
+//            override fun function(param: Any): String {
+//
+//                ToastUtils.showShort(getContext(),"点击了main")
+//                ToastUtils.showShort(getContext(),"点击了main"+param.toString())
+//                return "哈哈哈"
+//            }
+//
+//        }))
+//
+//    }
 
 }

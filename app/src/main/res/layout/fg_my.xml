@@ -12,4 +12,12 @@
               android:id="@+id/tv_click_my"
     />
 
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="我点击了我的wpwr"
+              android:layout_margin="4dp"
+              android:padding="4dp"
+              android:id="@+id/tv_click_my2"
+    />
+
 </LinearLayout>
