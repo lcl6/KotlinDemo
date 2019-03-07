@@ -46,6 +46,7 @@ showStatusCompleted()
 
     private fun init() {
         MainActivity.start(this)
+        finish()
     }
 
     @SuppressLint("NeedOnRequestPermissionsResult")
