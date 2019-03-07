@@ -40,11 +40,7 @@ class MainFragment : BaseInterFaceFragment() {
     override fun findViews(view: View, savedInstanceState: Bundle?) {
         super.findViews(view, savedInstanceState)
         ButterKnife.bind(this,view)
-
         goneTitleBar()
-
-
-
     }
 
     override fun getWpwrFragTag(): String {

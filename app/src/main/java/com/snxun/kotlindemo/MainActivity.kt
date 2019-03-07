@@ -8,6 +8,7 @@ import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.lodz.android.pandora.base.activity.BaseActivity
+import com.snxun.kotlindemo.ui.PageWebviewActivity
 import com.snxun.kotlindemo.ui.ViewPageActivity
 
 /**
@@ -20,6 +21,10 @@ class MainActivity : BaseActivity(){
         lateinit var  tv : TextView
     @BindView(R.id.tv_btn_fragment)
     lateinit var  tvFragment : TextView
+
+    @BindView(R.id.tv_btn_h5)
+    lateinit var  tvWebView : TextView
+
 
 
     override fun getLayoutId(): Int {
@@ -43,6 +48,10 @@ class MainActivity : BaseActivity(){
         tvFragment.setOnClickListener {
             ViewPageActivity.start(getContext())
         }
+
+        tvWebView.setOnClickListener {
+            PageWebviewActivity.start(getContext())
+        }
     }
 
 
@@ -57,6 +66,7 @@ class MainActivity : BaseActivity(){
         setOnMyClick { mag ->
             Toast.makeText(this,mag,Toast.LENGTH_LONG).show()
         }
+
 
     }
     var mListener: ((String) -> Unit)? =null

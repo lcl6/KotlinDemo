@@ -106,26 +106,4 @@ class ViewPageActivity : BaseInterActivity() {
     }
 
 
-
-
-//    fun toImplementsInterface(tag : String ){
-//        val baseFrag = supportFragmentManager.findFragmentByTag(tag) as BaseInterFaceFragment
-//        val functionManager = FunctionManager.getInstance()
-//
-//        baseFrag.setFunctionManger(functionManager.addFunction( object :FunctionNoParamNoResult(FriendFragment.TAG_FriendFragment){
-//            override fun function() {
-//                ToastUtils.showShort(getContext(),"点击了朋友")
-//            }
-//        }).addFunction(object :FunctionWithParamWithResult<Any,Any>(MainFragment.TAG_MainFragment){
-//            override fun function(param: Any): String {
-//
-//                ToastUtils.showShort(getContext(),"点击了main")
-//                ToastUtils.showShort(getContext(),"点击了main"+param.toString())
-//                return "哈哈哈"
-//            }
-//
-//        }))
-//
-//    }
-
 }
