@@ -40,7 +40,6 @@ class MainActivity : BaseActivity(){
     override fun findViews(savedInstanceState: Bundle?) {
         super.findViews(savedInstanceState)
         ButterKnife.bind(this)
-
     }
 
     override fun setListeners() {
