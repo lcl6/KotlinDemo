@@ -13,5 +13,8 @@
 
     <color name="color_0099ff">#0099ff</color>
 
+    <color name="colorLine">#dfdfdf</color>
 
+    <color name="colorFontGreyDark">#333333</color>
+    <color name="light_transparent">#16000000</color>
 </resources>

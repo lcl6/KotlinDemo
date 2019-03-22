@@ -9,6 +9,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.lodz.android.pandora.base.activity.BaseActivity
 import com.snxun.kotlindemo.ui.PageWebviewActivity
+import com.snxun.kotlindemo.ui.SkeletonAcitivity
 import com.snxun.kotlindemo.ui.ViewPageActivity
 
 /**
@@ -24,11 +25,12 @@ class MainActivity : BaseActivity(){
 
     @BindView(R.id.tv_btn_h5)
     lateinit var  tvWebView : TextView
-
+    @BindView(R.id.tv_btn_zzp)
+    lateinit var  tvSkeleton : TextView
 
 
     override fun getLayoutId(): Int {
-       return R.layout. activity_main
+       return R.layout.activity_main
     }
     companion object {
         fun start(context: Context){
@@ -51,6 +53,12 @@ class MainActivity : BaseActivity(){
         tvWebView.setOnClickListener {
             PageWebviewActivity.start(getContext())
         }
+
+        tvSkeleton.setOnClickListener{
+            SkeletonAcitivity.start(getContext())
+        }
+
+
     }
 
 
