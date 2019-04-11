@@ -51,6 +51,10 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.1.0'
     kapt 'com.jakewharton:butterknife-compiler:10.1.0'
 
+    //MotionLayout
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha4'
+
     implementation project(':skeletonlibrary')
+
 
 }

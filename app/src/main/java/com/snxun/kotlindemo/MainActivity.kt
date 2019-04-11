@@ -8,6 +8,7 @@ import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.lodz.android.pandora.base.activity.BaseActivity
+import com.snxun.kotlindemo.ui.MotionActivity
 import com.snxun.kotlindemo.ui.PageWebviewActivity
 import com.snxun.kotlindemo.ui.SkeletonAcitivity
 import com.snxun.kotlindemo.ui.ViewPageActivity
@@ -27,6 +28,8 @@ class MainActivity : BaseActivity(){
     lateinit var  tvWebView : TextView
     @BindView(R.id.tv_btn_zzp)
     lateinit var  tvSkeleton : TextView
+    @BindView(R.id.tv_btn_motion)
+    lateinit var  tvMotion : TextView
 
 
     override fun getLayoutId(): Int {
@@ -41,6 +44,8 @@ class MainActivity : BaseActivity(){
 
     override fun findViews(savedInstanceState: Bundle?) {
         super.findViews(savedInstanceState)
+        getTitleBarLayout().setTitleName("motion")
+
         ButterKnife.bind(this)
     }
 
@@ -57,7 +62,9 @@ class MainActivity : BaseActivity(){
         tvSkeleton.setOnClickListener{
             SkeletonAcitivity.start(getContext())
         }
-
+        tvMotion.setOnClickListener {
+            MotionActivity.start(getContext())
+        }
 
     }
 

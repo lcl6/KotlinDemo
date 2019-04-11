@@ -30,6 +30,8 @@
         <activity android:name=".ui.ViewPageActivity"/>
         <activity android:name=".ui.PageWebviewActivity"/>
         <activity android:name=".ui.SkeletonAcitivity"/>
+        <activity android:name=".ui.NewsDetailActivity"/>
+        <activity android:name=".ui.MotionActivity"/>
     </application>
 
 </manifest>
