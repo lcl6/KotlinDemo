@@ -4,8 +4,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -30,7 +28,9 @@ android {
 
     }
 }
-
+androidExtensions {
+    experimental = true
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

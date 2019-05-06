@@ -1,13 +1,12 @@
 package com.snxun.kotlindemo.fragment
 
+
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
-import butterknife.BindView
 import butterknife.ButterKnife
 import com.snxun.kotlindemo.R
 import com.snxun.kotlindemo.base.BaseInterFaceFragment
-
+import kotlinx.android.synthetic.main.fg_friend.*
 /**
  * 朋友圈
  * Created by liancl on 2019/3/1.
@@ -17,8 +16,6 @@ class FriendFragment : BaseInterFaceFragment() {
 
 
 
-    @BindView(R.id.tv_click_pyq)
-    lateinit var clPyq : TextView
 
 
     companion object {
@@ -53,7 +50,7 @@ class FriendFragment : BaseInterFaceFragment() {
 
     override fun setListeners(view: View) {
         super.setListeners(view)
-        clPyq.setOnClickListener {
+        tv_click_pyq.setOnClickListener {
             functionManager.invokeFunction(TAG_FriendFragment)
         }
     }

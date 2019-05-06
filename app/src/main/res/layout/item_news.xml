@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_title_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -50,7 +50,7 @@
         android:ellipsize="end"
         android:maxLines="3"
         android:layout_marginRight="16dp"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_title_id"
         app:layout_constraintTop_toTopOf="@+id/img_news"
         app:layout_constraintBottom_toBottomOf="@+id/img_news"
         android:text="2017-09-01 Google正式发布Android8.0系统，此次系统命名为O，除了优化性能提高整体系统流畅度外，还新增了一些特性..." />
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/img_news"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_title_id"
         android:text="www.google.com/news" />
 
     <View

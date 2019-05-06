@@ -186,7 +186,7 @@ class ShimmerLayout : FrameLayout {
                     MIN_ANGLE_VALUE,
                     MAX_ANGLE_VALUE
                 )
-            )
+            ) as Throwable
         }
         this.shimmerAngle = angle
         resetIfStarted()

@@ -2,19 +2,16 @@ package com.snxun.kotlindemo.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
-import butterknife.BindView
 import butterknife.ButterKnife
 import com.snxun.kotlindemo.R
 import com.snxun.kotlindemo.base.BaseInterFaceFragment
+import kotlinx.android.synthetic.main.fg_main.*
 
 /**
  * Created by liancl on 2019/2/28.
  */
 class MainFragment : BaseInterFaceFragment() {
 
-    @BindView(R.id.tv_click_main)
-    lateinit var clMain:TextView
 
 
 
@@ -49,7 +46,7 @@ class MainFragment : BaseInterFaceFragment() {
 
     override fun setListeners(view: View) {
         super.setListeners(view)
-        clMain.setOnClickListener {
+        tv_click_main.setOnClickListener {
             functionManager.invokeFunction(TAG_MainFragment,"aaa",String::class.java)
         }
 

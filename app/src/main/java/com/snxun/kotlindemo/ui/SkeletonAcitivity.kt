@@ -1,19 +1,19 @@
 package com.snxun.kotlindemo.ui
 
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import butterknife.BindView
-import butterknife.ButterKnife
 import com.example.skeletonlibrary.Skeleton
 import com.lodz.android.pandora.base.activity.BaseActivity
 import com.snxun.kotlindemo.R
 import com.snxun.kotlindemo.adapter.NewsAdapter
 import com.snxun.kotlindemo.bean.NewsListBean
+import kotlinx.android.synthetic.main.ac_skeleton.*
 import java.util.*
+
 
 /**
  * Created by liancl on 2019/3/21.
@@ -21,8 +21,6 @@ import java.util.*
  */
 class SkeletonAcitivity : BaseActivity() {
 
-    @BindView(R.id.recycler_view)
-    lateinit var recycler: RecyclerView
 
     var newsAdapter : NewsAdapter? = null
     var mList: MutableList<NewsListBean>? = null
@@ -43,7 +41,6 @@ class SkeletonAcitivity : BaseActivity() {
 
     override fun findViews(savedInstanceState: Bundle?) {
         super.findViews(savedInstanceState)
-        ButterKnife.bind(this)
         showStatusCompleted()
         initRecycelrView()
 
@@ -63,14 +60,14 @@ class SkeletonAcitivity : BaseActivity() {
         }
 
         val linearLayoutManager = LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false)
-        recycler.layoutManager=linearLayoutManager
+        recycler_view.layoutManager=linearLayoutManager
         newsAdapter= NewsAdapter(getContext())
 
 
 //        newsAdapter!!.setData(mList as ArrayList<NewsListBean>)
         newsAdapter!!.submitList(mList as ArrayList<NewsListBean>)
-        recycler.adapter=newsAdapter
-        val skeletonScreen = Skeleton.bind(recycler)
+        recycler_view.adapter=newsAdapter
+        val skeletonScreen = Skeleton.bind(recycler_view)
             .adapter(newsAdapter!!)
             .shimmer(true)
             .angle(20)
@@ -80,7 +77,7 @@ class SkeletonAcitivity : BaseActivity() {
             .load(R.layout.item_skeleton_news)
             .show()
 
-        recycler.postDelayed({ skeletonScreen.hide() }, 500)
+        recycler_view.postDelayed({ skeletonScreen.hide() }, 500)
     }
 
     override fun initData() {

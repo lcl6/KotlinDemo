@@ -2,22 +2,15 @@ package com.snxun.kotlindemo.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
-import butterknife.BindView
 import butterknife.ButterKnife
 import com.snxun.kotlindemo.R
 import com.snxun.kotlindemo.base.BaseInterFaceFragment
+import kotlinx.android.synthetic.main.fg_my.*
 
 /**
  * Created by liancl on 2019/3/1.
  */
 class MyFragment : BaseInterFaceFragment() {
-
-    @BindView(R.id.tv_click_my)
-    lateinit var clMy :TextView
-
-    @BindView(R.id.tv_click_my2)
-    lateinit var clMy2 :TextView
 
     companion object {
         val TAG_MyFragment : String="cccc"
@@ -59,11 +52,11 @@ class MyFragment : BaseInterFaceFragment() {
     override fun setListeners(view: View) {
         super.setListeners(view)
 
-        clMy.setOnClickListener {
+        tv_click_my.setOnClickListener {
             functionManager.invokeFunction(TAG_MyFragment)
         }
 
-        clMy2.setOnClickListener {
+        tv_click_my2.setOnClickListener {
             functionManager.invokeFunction(TAG_MyFragment,"bbbb",String::class.java)
         }
 

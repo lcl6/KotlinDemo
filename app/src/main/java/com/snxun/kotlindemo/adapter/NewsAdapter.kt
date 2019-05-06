@@ -4,15 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
-import butterknife.BindView
-import butterknife.ButterKnife
 import com.lodz.android.pandora.widget.rv.recycler.BaseRecyclerViewAdapter
 import com.snxun.kotlindemo.R
 import com.snxun.kotlindemo.bean.NewsListBean
 import com.snxun.kotlindemo.utils.jsbridge.dif.DiffItemCallback
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.item_news.*
 
 /**
  * Created by liancl on 2019/3/21.
@@ -48,9 +47,9 @@ class NewsAdapter(context: Context) : BaseRecyclerViewAdapter<NewsListBean>(cont
     @SuppressLint("SetTextI18n")
     private fun setItem(viewholder: Viewholder, item: NewsListBean?, position: Int) {
         if (item != null) {
-            viewholder.title.text = "${item.desc} --GoogleAndroid8.0-$position"
+            viewholder.tv_title_id.text = "${item.desc} --GoogleAndroid8.0-$position"
         }
-        viewholder.title.setOnClickListener {
+        viewholder.tv_title_id.setOnClickListener {
             if(liset!=null){
                 liset.intemClick(item)
             }
@@ -68,17 +67,5 @@ class NewsAdapter(context: Context) : BaseRecyclerViewAdapter<NewsListBean>(cont
         fun intemClick(item: NewsListBean?)
     }
 
-    class Viewholder : RecyclerView.ViewHolder {
-
-        @BindView(R.id.tv_title)
-        lateinit var title:TextView
-
-
-        constructor(itemView: View) : super(itemView){
-            ButterKnife.bind(this,itemView)
-        }
-
-
-    }
-
+    class Viewholder(override val containerView: View) : RecyclerView.ViewHolder(containerView),LayoutContainer
 }

@@ -6,9 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
-import butterknife.BindView
-import butterknife.ButterKnife
 import com.google.android.material.tabs.TabLayout
 import com.lodz.android.corekt.utils.ToastUtils
 import com.snxun.kotlindemo.R
@@ -17,18 +14,11 @@ import com.snxun.kotlindemo.base.BaseInterActivity
 import com.snxun.kotlindemo.fragment.FriendFragment
 import com.snxun.kotlindemo.fragment.MainFragment
 import com.snxun.kotlindemo.fragment.MyFragment
-
+import kotlinx.android.synthetic.main.ac_viewpager.*
 /**
  * Created by liancl on 2019/2/26.
  */
 class ViewPageActivity : BaseInterActivity() {
-
-
-    @BindView(R.id.vp)
-    lateinit var viewPager: ViewPager
-
-    @BindView(R.id.tb_layout)
-    lateinit var tabLayout: TabLayout
 
 
     var mList= ArrayList<String>()
@@ -50,7 +40,6 @@ class ViewPageActivity : BaseInterActivity() {
 
     override fun findViews(savedInstanceState: Bundle?) {
         super.findViews(savedInstanceState)
-        ButterKnife.bind(this)
 
         initViewPage()
         showStatusCompleted()
@@ -69,10 +58,10 @@ class ViewPageActivity : BaseInterActivity() {
         mFragmentList.add(mainFragment2)
         mFragmentList.add(mainFragment3)
         var mAdapter= TabAdapter(supportFragmentManager,mList,mFragmentList)
-        viewPager.adapter=mAdapter
-        viewPager.offscreenPageLimit=mList.size
-        tabLayout.tabMode=TabLayout.MODE_FIXED
-        tabLayout.setupWithViewPager(viewPager)
+        vp.adapter=mAdapter
+        vp.offscreenPageLimit=mList.size
+        tb_layout.tabMode=TabLayout.MODE_FIXED
+        tb_layout.setupWithViewPager(vp)
         addTabNum("1","2","3")
 
     }
@@ -114,7 +103,7 @@ class ViewPageActivity : BaseInterActivity() {
     fun addTabNum( mainNum:String,pyqNum:String,myNum:String){
 
         for (index in 0 until mList.size){
-            tabLayout.getTabAt(index)!!.customView = null
+            tb_layout.getTabAt(index)!!.customView = null
             val view = LayoutInflater.from(getContext()).inflate(R.layout.tab_item, null)
             val tvTitle = view.findViewById<TextView>(R.id.tv_title)
             val tvSum = view.findViewById<TextView>(R.id.tv_sum)
@@ -129,7 +118,7 @@ class ViewPageActivity : BaseInterActivity() {
                     tvTitle.text = "我的"; tvSum.text = myNum
                 }
             }
-            tabLayout.getTabAt(index)!!.customView = view
+            tb_layout.getTabAt(index)!!.customView = view
         }
     }
 

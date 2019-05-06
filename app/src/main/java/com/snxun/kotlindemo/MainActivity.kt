@@ -3,15 +3,15 @@ package com.snxun.kotlindemo
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
-import butterknife.BindView
 import butterknife.ButterKnife
 import com.lodz.android.pandora.base.activity.BaseActivity
 import com.snxun.kotlindemo.ui.MotionActivity
 import com.snxun.kotlindemo.ui.PageWebviewActivity
 import com.snxun.kotlindemo.ui.SkeletonAcitivity
 import com.snxun.kotlindemo.ui.ViewPageActivity
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 /**
  * Created by liancl on 2019/2/13.
@@ -19,17 +19,7 @@ import com.snxun.kotlindemo.ui.ViewPageActivity
  */
 class MainActivity : BaseActivity(){
 
-        @BindView(R.id.tv_btn)
-        lateinit var  tv : TextView
-    @BindView(R.id.tv_btn_fragment)
-    lateinit var  tvFragment : TextView
 
-    @BindView(R.id.tv_btn_h5)
-    lateinit var  tvWebView : TextView
-    @BindView(R.id.tv_btn_zzp)
-    lateinit var  tvSkeleton : TextView
-    @BindView(R.id.tv_btn_motion)
-    lateinit var  tvMotion : TextView
 
 
     override fun getLayoutId(): Int {
@@ -51,18 +41,18 @@ class MainActivity : BaseActivity(){
 
     override fun setListeners() {
         super.setListeners()
-        tvFragment.setOnClickListener {
+        tv_btn_fragment.setOnClickListener {
             ViewPageActivity.start(getContext())
         }
 
-        tvWebView.setOnClickListener {
+        tv_btn_h5.setOnClickListener {
             PageWebviewActivity.start(getContext())
         }
 
-        tvSkeleton.setOnClickListener{
+        tv_btn_zzp.setOnClickListener{
             SkeletonAcitivity.start(getContext())
         }
-        tvMotion.setOnClickListener {
+        tv_btn_motion.setOnClickListener {
             MotionActivity.start(getContext())
         }
 
@@ -73,7 +63,7 @@ class MainActivity : BaseActivity(){
         super.initData()
         goneTitleBar()
         showStatusCompleted()
-        tv.setOnClickListener {
+        tv_btn.setOnClickListener {
             mListener?.invoke("你好")
         }
 

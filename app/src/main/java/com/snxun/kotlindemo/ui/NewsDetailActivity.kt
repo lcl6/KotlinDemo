@@ -1,15 +1,17 @@
 package com.snxun.kotlindemo.ui
 
+
+
+
+
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
-import butterknife.BindView
-import butterknife.ButterKnife
 import com.lodz.android.pandora.base.activity.BaseActivity
 import com.snxun.kotlindemo.R
-
+import kotlinx.android.synthetic.main.ac_news_detail.*
 /**
  * 新闻详情界面
  * Created by liancl on 2019/3/29.
@@ -17,8 +19,6 @@ import com.snxun.kotlindemo.R
  */
 class NewsDetailActivity : BaseActivity() {
 
-    @BindView(R.id.tv_position)
-    lateinit var tvPosi:TextView
 
     override fun getLayoutId(): Int {
         return R.layout.ac_news_detail
@@ -39,7 +39,6 @@ class NewsDetailActivity : BaseActivity() {
 
     override fun findViews(savedInstanceState: Bundle?) {
         super.findViews(savedInstanceState)
-        ButterKnife.bind(this)
         getTitleBarLayout().setTitleName("新闻详情")
         getIntnentData()
 
@@ -49,7 +48,7 @@ class NewsDetailActivity : BaseActivity() {
     @SuppressLint("SetTextI18n")
     private fun getIntnentData() {
         val position = intent.getStringExtra(EXTEA_POSION)
-        tvPosi.text= position
+        tv_position.text= position
     }
 
     override fun initData() {

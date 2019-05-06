@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.lodz.android.pandora.base.activity.BaseActivity
 import com.snxun.kotlindemo.R
 
+import kotlinx.android.synthetic.main.ac_main_scene1.*
 /**
  * MotionLayout 的使用
  * Created by liancl on 2019/4/11.
