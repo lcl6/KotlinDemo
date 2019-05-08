@@ -50,9 +50,7 @@ class NewsAdapter(context: Context) : BaseRecyclerViewAdapter<NewsListBean>(cont
             viewholder.tv_title_id.text = "${item.desc} --GoogleAndroid8.0-$position"
         }
         viewholder.tv_title_id.setOnClickListener {
-            if(liset!=null){
-                liset.intemClick(item)
-            }
+            liset.intemClick(item)
 
         }
     }

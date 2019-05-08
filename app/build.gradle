@@ -28,6 +28,7 @@ android {
 
     }
 }
+//打开实验模式 LayoutContainer 和paraceable 才能使用
 androidExtensions {
     experimental = true
 }
@@ -55,6 +56,13 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha4'
 
     implementation project(':skeletonlibrary')
+
+
+    //协程
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0"
+
 
 
 }

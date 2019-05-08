@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import butterknife.ButterKnife
 import com.lodz.android.pandora.base.activity.BaseActivity
-import com.snxun.kotlindemo.ui.MotionActivity
-import com.snxun.kotlindemo.ui.PageWebviewActivity
-import com.snxun.kotlindemo.ui.SkeletonAcitivity
-import com.snxun.kotlindemo.ui.ViewPageActivity
+import com.snxun.kotlindemo.ui.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -55,6 +52,10 @@ class MainActivity : BaseActivity(){
         tv_btn_motion.setOnClickListener {
             MotionActivity.start(getContext())
         }
+        tv_btn_xc.setOnClickListener {
+            HandlerActivity.start(getContext())
+        }
+
 
     }
 
