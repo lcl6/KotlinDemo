@@ -19,6 +19,9 @@ import kotlin.system.measureTimeMillis
  */
 class HandlerActivity : BaseActivity() {
 
+
+
+
     companion object {
 
         fun start(context: Context){
