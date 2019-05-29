@@ -4,11 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import butterknife.ButterKnife
 import com.lodz.android.pandora.base.activity.BaseActivity
 import com.snxun.kotlindemo.ui.*
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 /**
  * Created by liancl on 2019/2/13.
@@ -33,7 +31,7 @@ class MainActivity : BaseActivity(){
         super.findViews(savedInstanceState)
         getTitleBarLayout().setTitleName("motion")
 
-        ButterKnife.bind(this)
+
     }
 
     override fun setListeners() {

@@ -7,10 +7,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.skeletonlibrary.Skeleton
+import com.lodz.android.corekt.anko.dp2px
 import com.lodz.android.pandora.base.activity.BaseActivity
 import com.snxun.kotlindemo.R
 import com.snxun.kotlindemo.adapter.NewsAdapter
 import com.snxun.kotlindemo.bean.NewsListBean
+import com.snxun.kotlindemo.utils.jsbridge.recycler.CommanDecoration
 import kotlinx.android.synthetic.main.ac_skeleton.*
 import java.util.*
 
@@ -61,6 +63,12 @@ class SkeletonAcitivity : BaseActivity() {
 
         val linearLayoutManager = LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false)
         recycler_view.layoutManager=linearLayoutManager
+
+
+        val commanDecoration = CommanDecoration()
+        commanDecoration.setColor(R.color.colorPrimary).setDividerHeight(getContext().dp2px(10))
+            .setMargin(getContext().dp2px(10))
+        recycler_view.addItemDecoration(commanDecoration)
         newsAdapter= NewsAdapter(getContext())
 
 
