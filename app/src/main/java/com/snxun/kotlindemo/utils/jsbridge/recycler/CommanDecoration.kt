@@ -1,10 +1,10 @@
 package com.snxun.kotlindemo.utils.jsbridge.recycler
 
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
 import android.view.View
+import androidx.annotation.ColorInt
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -15,12 +15,11 @@ import androidx.recyclerview.widget.RecyclerView
 class CommanDecoration : RecyclerView.ItemDecoration() {
 
     private var mDividerHeight: Float= 0.0f
-    private var color: Int = 0
     private var margin: Float = 0.0f
     private var mPaint: Paint = Paint()
     init {
+        mPaint.color= 0xffffff
         mPaint.isAntiAlias = true          //抗锯齿
-        mPaint.color = Color.GRAY        //默认颜色
     }
 
     //通过建造者模式来设置三个属性
@@ -32,8 +31,8 @@ class CommanDecoration : RecyclerView.ItemDecoration() {
 
     //通过建造者模式来设置三个属性
     //设置颜色(默认是设置的一样的，若需要自己更改)
-    fun setColor( color :Int):CommanDecoration{
-        this.color = color
+    fun setColor(@ColorInt color :Int):CommanDecoration{
+        mPaint.color=color
         return this
     }
 
@@ -59,6 +58,7 @@ class CommanDecoration : RecyclerView.ItemDecoration() {
         if(childCount<=0){
             return
         }
+
         //因为getItemOffsets是针对每一个ItemView，而onDraw方法是针对RecyclerView本身，所以需要循环遍历来设置
         for (i in 0 until childCount){
             val view = parent.getChildAt(i)
@@ -71,6 +71,7 @@ class CommanDecoration : RecyclerView.ItemDecoration() {
             val divideLeft = parent.paddingLeft + margin
             val divideBottom = view.top
             val divideRight = parent.width - parent.paddingRight - margin
+            val color = mPaint.color
             c.drawRect(divideLeft, divideTop, divideRight, divideBottom.toFloat(), mPaint)
         }
     }

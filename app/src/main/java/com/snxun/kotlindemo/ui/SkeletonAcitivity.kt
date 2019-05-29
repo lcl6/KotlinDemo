@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.skeletonlibrary.Skeleton
 import com.lodz.android.corekt.anko.dp2px
@@ -48,7 +49,7 @@ class SkeletonAcitivity : BaseActivity() {
 
     }
 
-    @SuppressLint("WrongConstant")
+    @SuppressLint("WrongConstant", "ResourceType")
     private fun initRecycelrView() {
 
 
@@ -66,7 +67,7 @@ class SkeletonAcitivity : BaseActivity() {
 
 
         val commanDecoration = CommanDecoration()
-        commanDecoration.setColor(R.color.colorPrimary).setDividerHeight(getContext().dp2px(10))
+        commanDecoration.setColor(ContextCompat.getColor(getContext(),R.color.red)).setDividerHeight(getContext().dp2px(10))
             .setMargin(getContext().dp2px(10))
         recycler_view.addItemDecoration(commanDecoration)
         newsAdapter= NewsAdapter(getContext())
