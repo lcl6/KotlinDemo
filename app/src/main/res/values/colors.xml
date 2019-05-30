@@ -17,4 +17,7 @@
 
     <color name="colorFontGreyDark">#333333</color>
     <color name="light_transparent">#16000000</color>
+
+    <color name="color_dfdfdf">#dfdfdf</color>
+
 </resources>

@@ -65,5 +65,11 @@ class NewsAdapter(context: Context) : BaseRecyclerViewAdapter<NewsListBean>(cont
         fun intemClick(item: NewsListBean?)
     }
 
-    class Viewholder(override val containerView: View) : RecyclerView.ViewHolder(containerView),LayoutContainer
+    class Viewholder : RecyclerView.ViewHolder,LayoutContainer {
+        override val containerView: View
+
+        constructor(containerView: View) : super(containerView) {
+            this.containerView = containerView
+        }
+    }
 }

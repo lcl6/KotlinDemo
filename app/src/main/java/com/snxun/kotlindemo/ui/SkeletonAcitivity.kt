@@ -49,7 +49,7 @@ class SkeletonAcitivity : BaseActivity() {
 
     }
 
-    @SuppressLint("WrongConstant", "ResourceType")
+    @SuppressLint("WrongConstant")
     private fun initRecycelrView() {
 
 
