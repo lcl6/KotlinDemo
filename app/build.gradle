@@ -1,9 +1,19 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+
+
+///*************不同渠道打包配置引用 开始****************/
+//apply from: 'productFlavors/test.gradle'
+
+
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -12,6 +22,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        flavorDimensions "versionCode"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -27,14 +38,110 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
 
     }
+
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            resources.srcDirs = ['src/main/resources']
+            aidl.srcDirs = ['src/main/aidl']
+            renderscript.srcDirs = ['src/maom']
+            res.srcDirs = ['src/main/res']
+            assets.srcDirs = ['src/main/assets']
+            jniLibs.srcDir 'src/main/jniLibs'
+        }
+
+    }
+//    //必须在android里   每次给包，版本号要+1
+//    productFlavors {
+//        /**
+//         * MY COMPANY  测试：http://192.168.7.231:9011/MASSERVER  flj  111111  http://192.168.7.238:8080/znbl
+//         * 开发： http://192.168.120.40:9998/znbl      admin/123456
+//         * 振超：http://172.16.103.59:8080/znbl
+//         * 树勋：192.168.150.45:8080/znbl
+//         * hm:http://172.16.103.7:8080/FDZNBL_SERVER_V1
+//         * MZF:http://172.16.103.5:7878/znbl
+//         * http://127.0.0.1:14000/znbl
+//         * http://biludemo2.faduit.com:8083/znbl
+//         *  service_bus_type : 服务总线类型 0 默认 1 北京总线
+//         * bl_proceed_check 0无 1串并检测
+//         */
+//        app_default {
+//            applicationId "com.snxun.kotlindemo"
+//            manifestPlaceholders = [
+//                    applicationId :"com.snxun.kotlindemo",
+//                    app_icon          : "@mipmap/ic_launcher",
+//                    app_name          : "默认名字222"
+//            ]
+//        }
+//    }
+
+
+    // If you need to add more flavors, consider using flavor dimensions.
+// 构建变种版本
+    productFlavors {
+
+        production {   //正式发布版本
+            applicationId "com.lcl.eee"
+
+            manifestPlaceholders = [
+                    app_name          : "默认名字111",
+                    app_icon          : "@mipmap/ic_launcher"
+           ]
+
+        }
+        dev {          //开发测试版本
+            applicationId "com.lcl.eee.lll"
+            manifestPlaceholders = [
+                    app_name          : "默认名字222",
+                    app_icon          : "@mipmap/ic_launcher"
+                    ]
+
+        }
+    }
+
 }
 //打开实验模式 LayoutContainer 和paraceable 才能使用
 androidExtensions {
     experimental = true
 }
 
+
+
+//编译时，依据渠道名获取不同的lib
+def buildLibs() {
+    String currentFlavor = getCurrentFlavor()
+    println("current Flavor:" + currentFlavor)
+    boolean isChinese = "app_test".equalsIgnoreCase(currentFlavor)
+    println("--- is Chinese ---" + isChinese)
+    if (isChinese) {
+        return 'libs'
+    }
+    return 'libs'
+}
+
+def getCurrentFlavor() {
+    Gradle gradle = getGradle()
+    String taskStr = gradle.getStartParameter().getTaskRequests().toString()
+    println("taskStr:" + taskStr)
+    println()
+    Pattern pattern;
+    if (taskStr.contains("assemble")) {
+        pattern = Pattern.compile("assemble(\\w+)(Release|Debug)")
+    } else {
+        pattern = Pattern.compile("generate(\\w+)(Release|Debug)")
+    }
+    Matcher matcher = pattern.matcher(taskStr)
+    if (matcher.find()) {
+        return matcher.group(1);
+    }
+    return ""
+}
+
+
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir:"libs", include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

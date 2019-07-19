@@ -1,0 +1,15 @@
+android{
+    productFlavors{
+        app_test{
+            applicationId "com.snxun.kotlindemo.dd",
+                    manifestPlaceholders = [
+                            applicationId :"com.snxun.kotlindemo.dd",
+                            app_icon          : "@mipmap/ic_launcher",
+                            app_name          : "测试多渠道"
+                    ]
+        }
+
+
+
+    }
+}
