@@ -2,3 +2,62 @@
    https://blog.csdn.net/zhangcanyan/article/details/52777265
 
 
+//多渠道打包
+
+
+/*************不同渠道打包配置引用 开始****************/
+apply from: 'productFlavors/beijinxc.gradle'
+apply from: 'productFlavors/ankang.gradle'
+apply from: 'productFlavors/haiyan_in.gradle'
+apply from: 'productFlavors/haiyan_out.gradle'
+apply from: 'productFlavors/mas.gradle'
+apply from: 'productFlavors/sdwf.gradle'
+apply from: 'productFlavors/qdn.gradle'
+apply from: 'productFlavors/siyue.gradle'
+apply from: 'productFlavors/zhousan.gradle'
+apply from: 'productFlavors/test.gradle'
+apply from: 'productFlavors/gd_zhuhai.gradle'
+apply from: 'productFlavors/beijinxc.gradle'
+apply from: 'productFlavors/ankang.gradle'
+//apply from: '/productFlavors/haiyan_in.gradle'
+//apply from: '/productFlavors/haiyan_out.gradle'
+//apply from: '/productFlavors/mas.gradle'
+//apply from: '/productFlavors/sdwf.gradle'
+//apply from: '/productFlavors/qdn.gradle'
+//apply from: '/productFlavors/siyue.gradle'
+//apply from: '/productFlavors/zhousan.gradle'
+apply from: 'productFlavors/daqing.gradle'
+apply from: 'productFlavors/test.gradle'
+/*************不同渠道打包配置引用 结束****************/
+
+//编译时，依据渠道名获取不同的lib
+def buildLibs() {
+    String currentFlavor = getCurrentFlavor()
+    println("current Flavor:" + currentFlavor)
+    boolean isChinese = "app_gd_zhuhai".equalsIgnoreCase(currentFlavor)
+    println("--- is Chinese ---" + isChinese)
+    if (isChinese) {
+        return 'libs-gdzhuhai'
+    }
+    return 'libs'
+}
+
+
+def getCurrentFlavor() {
+    Gradle gradle = getGradle()
+    String taskStr = gradle.getStartParameter().getTaskRequests().toString()
+    println("taskStr:" + taskStr)
+    println()
+    Pattern pattern;
+    if (taskStr.contains("assemble")) {
+        pattern = Pattern.compile("assemble(\\w+)(Release|Debug)")
+    } else {
+        pattern = Pattern.compile("generate(\\w+)(Release|Debug)")
+    }
+    Matcher matcher = pattern.matcher(taskStr)
+    if (matcher.find()) {
+        return matcher.group(1);
+    }
+    return ""
+}
+
