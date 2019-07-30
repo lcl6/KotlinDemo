@@ -65,4 +65,14 @@
             android:padding="4dp"
     />
 
+    <TextView
+            android:id="@+id/tv_btn_qmp"
+            android:layout_margin="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试全面屏"
+            android:textColor="@color/colorPrimary"
+            android:padding="4dp"
+    />
+
 </LinearLayout>

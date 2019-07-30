@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <TextView
+            android:id="@+id/tv_bott"
+            android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="测试全面屏测试全面屏测试全面屏测测试全面屏测试全面屏测试全面屏测试全面屏测试全面屏试全面屏测试全面屏"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="测试全面屏测试全面屏测试全面屏测试测试全面屏测试全面屏测试全面屏测试全面屏测试全面屏全面屏测试全面屏"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="测试全面屏测试全面屏测试全面屏测试全面屏测试全面屏"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="测试全面屏测试全面屏测试全面屏测试全面屏测试全面屏"
+    />
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="测试全面屏测试全面屏测试全面屏测试全面屏测试全面屏"
+    />
+</LinearLayout>

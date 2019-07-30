@@ -17,7 +17,8 @@ class BridgeWebView : WebView, WebViewJavascriptBridge {
     private val TAG = "BridgeWebView"
     internal var responseCallbacks: MutableMap<String, CallBackFunction> = HashMap()
     internal var messageHandlers: MutableMap<String, BridgeHandler> = HashMap()
-    internal var defaultHandler: BridgeHandler = DefaultHandler()
+    internal var defaultHandler: BridgeHandler =
+        DefaultHandler()
 
     private var startupMessage: MutableList<Message>? = ArrayList()
 
@@ -168,7 +169,8 @@ class BridgeWebView : WebView, WebViewJavascriptBridge {
      */
     internal fun flushMessageQueue() {
         if (Thread.currentThread() === Looper.getMainLooper().thread) {
-            loadUrl(BridgeUtil.JS_FETCH_QUEUE_FROM_JAVA, object : CallBackFunction {
+            loadUrl(BridgeUtil.JS_FETCH_QUEUE_FROM_JAVA, object :
+                CallBackFunction {
                 override fun onCallBack(data: String) {
                     // deserializeMessage 反序列化消息
                     var list: List<Message>? = null
@@ -196,7 +198,8 @@ class BridgeWebView : WebView, WebViewJavascriptBridge {
                             // if had callbackId 如果有回调Id
                             val callbackId = m.callbackId
                             if (!TextUtils.isEmpty(callbackId)) {
-                                responseFunction = object : CallBackFunction {
+                                responseFunction = object :
+                                    CallBackFunction {
                                     override fun onCallBack(data: String) {
                                         val responseMsg = Message()
                                         responseMsg.responseId = callbackId
@@ -205,7 +208,8 @@ class BridgeWebView : WebView, WebViewJavascriptBridge {
                                     }
                                 }
                             } else {
-                                responseFunction = object : CallBackFunction {
+                                responseFunction = object :
+                                    CallBackFunction {
                                     override fun onCallBack(data: String) {
                                         // do nothing
                                     }

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lodz.android.pandora.widget.rv.recycler.BaseRecyclerViewAdapter
 import com.snxun.kotlindemo.R
 import com.snxun.kotlindemo.bean.NewsListBean
-import com.snxun.kotlindemo.utils.jsbridge.dif.DiffItemCallback
+import com.snxun.kotlindemo.utils.dif.DiffItemCallback
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_news.*
 

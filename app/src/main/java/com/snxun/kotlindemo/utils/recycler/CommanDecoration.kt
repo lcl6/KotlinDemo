@@ -1,4 +1,4 @@
-package com.snxun.kotlindemo.utils.jsbridge.recycler
+package com.snxun.kotlindemo.utils.recycler
 
 import android.graphics.Canvas
 import android.graphics.Paint

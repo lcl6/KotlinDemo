@@ -1,4 +1,4 @@
-package com.snxun.kotlindemo.utils.jsbridge.expand
+package com.snxun.kotlindemo.utils.expand
 
 /**
  * Created by liancl on 2019/5/9.

@@ -13,7 +13,7 @@ import com.lodz.android.pandora.base.activity.BaseActivity
 import com.snxun.kotlindemo.R
 import com.snxun.kotlindemo.adapter.NewsAdapter
 import com.snxun.kotlindemo.bean.NewsListBean
-import com.snxun.kotlindemo.utils.jsbridge.recycler.CommanDecoration
+import com.snxun.kotlindemo.utils.recycler.CommanDecoration
 import kotlinx.android.synthetic.main.ac_skeleton.*
 import java.util.*
 

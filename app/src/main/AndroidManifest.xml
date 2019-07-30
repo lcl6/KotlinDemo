@@ -15,8 +15,16 @@
             android:label="${app_name}"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:name=".base.App"
+            android:resizeableActivity="false"
             android:supportsRtl="true"
+
             android:theme="@style/AppTheme">
+        <meta-data android:name="android.notch_support" android:value="true"/>
+
+        <meta-data
+                android:name="android.max_aspect"
+                android:value="2.4" />
+
         <activity android:name=".MainActivity">
 
         </activity>
@@ -33,6 +41,12 @@
         <activity android:name=".ui.NewsDetailActivity"/>
         <activity android:name=".ui.MotionActivity"/>
         <activity android:name=".ui.HandlerActivity"/>
+        <activity android:name=".ui.FullScreenActivity">
+            <meta-data android:name="android.notch_support" android:value="true"/>
+        </activity>
+
+
+
     </application>
 
 </manifest>

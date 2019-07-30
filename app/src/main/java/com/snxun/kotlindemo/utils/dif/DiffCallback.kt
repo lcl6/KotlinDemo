@@ -1,4 +1,4 @@
-package com.snxun.kotlindemo.utils.jsbridge.dif
+package com.snxun.kotlindemo.utils.dif
 
 import android.text.TextUtils
 import androidx.recyclerview.widget.DiffUtil

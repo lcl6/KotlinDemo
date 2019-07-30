@@ -1,4 +1,4 @@
-package com.snxun.kotlindemo.utils.jsbridge.storage
+package com.snxun.kotlindemo.utils.storage
 
 import android.content.Context
 import android.os.Build

@@ -66,7 +66,10 @@ open class BridgeWebViewClient(private val webView: BridgeWebView) : WebViewClie
     override fun onPageFinished(view: WebView, url: String) {
         super.onPageFinished(view, url)
 
-        BridgeUtil.webViewLoadLocalJs(view, BridgeWebView.toLoadJs)
+        BridgeUtil.webViewLoadLocalJs(
+            view,
+            BridgeWebView.toLoadJs
+        )
 
         //
         if (webView.getStartupMessage() != null) {

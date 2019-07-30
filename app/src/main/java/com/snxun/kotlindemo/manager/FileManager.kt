@@ -3,7 +3,7 @@ package com.snxun.kotlindemo.manager
 import android.text.TextUtils
 import com.lodz.android.corekt.utils.FileUtils
 import com.snxun.kotlindemo.base.App
-import com.snxun.kotlindemo.utils.jsbridge.storage.StorageUtils
+import com.snxun.kotlindemo.utils.storage.StorageUtils
 
 import java.io.File
 

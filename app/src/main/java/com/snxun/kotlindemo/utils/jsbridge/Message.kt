@@ -54,12 +54,22 @@ class Message {
             val m = Message()
             try {
                 val jsonObject = JSONObject(jsonStr)
-                m.handlerName = if (jsonObject.has(HANDLER_NAME_STR)) jsonObject.getString(HANDLER_NAME_STR) else null
-                m.callbackId = if (jsonObject.has(CALLBACK_ID_STR)) jsonObject.getString(CALLBACK_ID_STR) else null
+                m.handlerName = if (jsonObject.has(HANDLER_NAME_STR)) jsonObject.getString(
+                    HANDLER_NAME_STR
+                ) else null
+                m.callbackId = if (jsonObject.has(CALLBACK_ID_STR)) jsonObject.getString(
+                    CALLBACK_ID_STR
+                ) else null
                 m.responseData =
-                    if (jsonObject.has(RESPONSE_DATA_STR)) jsonObject.getString(RESPONSE_DATA_STR) else null
-                m.responseId = if (jsonObject.has(RESPONSE_ID_STR)) jsonObject.getString(RESPONSE_ID_STR) else null
-                m.data = if (jsonObject.has(DATA_STR)) jsonObject.getString(DATA_STR) else null
+                    if (jsonObject.has(RESPONSE_DATA_STR)) jsonObject.getString(
+                        RESPONSE_DATA_STR
+                    ) else null
+                m.responseId = if (jsonObject.has(RESPONSE_ID_STR)) jsonObject.getString(
+                    RESPONSE_ID_STR
+                ) else null
+                m.data = if (jsonObject.has(DATA_STR)) jsonObject.getString(
+                    DATA_STR
+                ) else null
                 return m
             } catch (e: JSONException) {
                 e.printStackTrace()
@@ -76,12 +86,22 @@ class Message {
                     val m = Message()
                     val jsonObject = jsonArray.getJSONObject(i)
                     m.handlerName =
-                        if (jsonObject.has(HANDLER_NAME_STR)) jsonObject.getString(HANDLER_NAME_STR) else null
-                    m.callbackId = if (jsonObject.has(CALLBACK_ID_STR)) jsonObject.getString(CALLBACK_ID_STR) else null
+                        if (jsonObject.has(HANDLER_NAME_STR)) jsonObject.getString(
+                            HANDLER_NAME_STR
+                        ) else null
+                    m.callbackId = if (jsonObject.has(CALLBACK_ID_STR)) jsonObject.getString(
+                        CALLBACK_ID_STR
+                    ) else null
                     m.responseData =
-                        if (jsonObject.has(RESPONSE_DATA_STR)) jsonObject.getString(RESPONSE_DATA_STR) else null
-                    m.responseId = if (jsonObject.has(RESPONSE_ID_STR)) jsonObject.getString(RESPONSE_ID_STR) else null
-                    m.data = if (jsonObject.has(DATA_STR)) jsonObject.getString(DATA_STR) else null
+                        if (jsonObject.has(RESPONSE_DATA_STR)) jsonObject.getString(
+                            RESPONSE_DATA_STR
+                        ) else null
+                    m.responseId = if (jsonObject.has(RESPONSE_ID_STR)) jsonObject.getString(
+                        RESPONSE_ID_STR
+                    ) else null
+                    m.data = if (jsonObject.has(DATA_STR)) jsonObject.getString(
+                        DATA_STR
+                    ) else null
                     list.add(m)
                 }
             } catch (e: JSONException) {

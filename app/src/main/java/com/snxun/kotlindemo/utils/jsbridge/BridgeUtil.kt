@@ -31,11 +31,17 @@ object BridgeUtil {
     fun getDataFromReturnUrl(url: String): String? {
         if (url.startsWith(YY_FETCH_QUEUE)) {
             // return = [{"responseId":"JAVA_CB_2_3957","responseData":"Javascript Says Right back aka!"}]
-            return url.replace(YY_FETCH_QUEUE, EMPTY_STR)
+            return url.replace(
+                YY_FETCH_QUEUE,
+                EMPTY_STR
+            )
         }
 
         // temp = _fetchQueue/[{"responseId":"JAVA_CB_2_3957","responseData":"Javascript Says Right back aka!"}]
-        val temp = url.replace(YY_RETURN_DATA, EMPTY_STR)
+        val temp = url.replace(
+            YY_RETURN_DATA,
+            EMPTY_STR
+        )
         val functionAndData = temp.split(SPLIT_MARK.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
 
         if (functionAndData.size >= 2) {
@@ -53,7 +59,10 @@ object BridgeUtil {
     // url = yy://return/_fetchQueue/[{"responseId":"JAVA_CB_1_360","responseData":"Javascript Says Right back aka!"}]
     fun getFunctionFromReturnUrl(url: String): String? {
         // temp = _fetchQueue/[{"responseId":"JAVA_CB_1_360","responseData":"Javascript Says Right back aka!"}]
-        val temp = url.replace(YY_RETURN_DATA, EMPTY_STR)
+        val temp = url.replace(
+            YY_RETURN_DATA,
+            EMPTY_STR
+        )
         val functionAndData = temp.split(SPLIT_MARK.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
         return if (functionAndData.size >= 1) {
             // functionAndData[0] = _fetchQueue

@@ -53,7 +53,9 @@ class MainActivity : BaseActivity(){
         tv_btn_xc.setOnClickListener {
             HandlerActivity.start(getContext())
         }
-
+        tv_btn_qmp.setOnClickListener{
+            FullScreenActivity.start(getContext())
+        }
 
     }
 

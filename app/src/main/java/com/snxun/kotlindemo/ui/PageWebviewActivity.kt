@@ -46,7 +46,7 @@ class PageWebviewActivity : BaseActivity() {
     override fun setListeners() {
         super.setListeners()
         //h5给安卓传参数 调用安卓的方法
-        web_view.registerData(object :BridgeLogHandler("submitFromWeb"){
+        web_view.registerData(object : BridgeLogHandler("submitFromWeb"){
             override fun onHandler(data: String, function: CallBackFunction) {
                 PrintLog.e(AppConstant.TAG,data)
                 function.onCallBack("哈哈我是移动端返回的")
