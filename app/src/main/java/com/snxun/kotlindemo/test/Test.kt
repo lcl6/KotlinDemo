@@ -32,6 +32,14 @@ fun main(args: Array<String>) {
 
     //coroutineScope  runBlocking 差别 runBlocking 会阻塞当前线程 coroutineScope 不会
 //    maina()
+
+
+    //建造者模式
+
+
+
+
+
 }
 
 
