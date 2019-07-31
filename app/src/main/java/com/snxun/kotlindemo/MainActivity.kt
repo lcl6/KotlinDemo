@@ -57,6 +57,12 @@ class MainActivity : BaseActivity(){
             FullScreenActivity.start(getContext())
         }
 
+
+        tv_btn_binder.setOnClickListener {
+
+            RecyclerBinderActivity.start(getContext())
+        }
+
     }
 
 

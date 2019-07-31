@@ -44,7 +44,7 @@
         <activity android:name=".ui.FullScreenActivity">
             <meta-data android:name="android.notch_support" android:value="true"/>
         </activity>
-
+        <activity android:name=".ui.RecyclerBinderActivity"/>
 
 
     </application>
