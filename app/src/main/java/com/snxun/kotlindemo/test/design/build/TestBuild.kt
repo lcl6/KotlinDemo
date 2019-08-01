@@ -17,7 +17,6 @@ class TestBuild {
           ThinPerson().creat()
           FatPerson().creat()
 
-
         CookBuilder()
             .setApple("app")
             .setCabage("cab")
