@@ -23,7 +23,7 @@ public class SingleLazy {
     public static SingleLazy getInstanceIn(){
         return SingleIn.SINGLE_LAZY_IN;
     }
-    public static class SingleIn{
+    private static class SingleIn{
         private static final  SingleLazy SINGLE_LAZY_IN= new SingleLazy();
 
     }
