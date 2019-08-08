@@ -7,13 +7,13 @@ package com.snxun.kotlindemo.test.kotlin
  */
 fun main(args: Array<String>) {
 
-    var item= listOf(1,2,3,4,5)
-    val fold = item.fold(0, { acc, i ->
-        val result = acc + i
-        result
-    })
-
-    println(fold)
+//    var item= listOf(1,2,3,4,5)
+//    val fold = item.fold(0, { acc, i ->
+//        val result = acc + i
+//        result
+//    })
+//
+//    println(fold)
 
 
 }
