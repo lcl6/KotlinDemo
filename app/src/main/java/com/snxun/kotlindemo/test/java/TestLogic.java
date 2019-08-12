@@ -25,7 +25,6 @@ public class TestLogic {
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-
     }
 
     private static class Thrad1 implements Runnable {

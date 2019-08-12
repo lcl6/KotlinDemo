@@ -2,6 +2,7 @@ package com.snxun.kotlindemo
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import com.lodz.android.pandora.base.activity.BaseActivity
@@ -30,8 +31,6 @@ class MainActivity : BaseActivity(){
     override fun findViews(savedInstanceState: Bundle?) {
         super.findViews(savedInstanceState)
         getTitleBarLayout().setTitleName("motion")
-
-
     }
 
     override fun setListeners() {

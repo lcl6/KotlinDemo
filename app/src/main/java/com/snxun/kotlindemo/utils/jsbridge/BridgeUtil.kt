@@ -64,7 +64,7 @@ object BridgeUtil {
             EMPTY_STR
         )
         val functionAndData = temp.split(SPLIT_MARK.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        return if (functionAndData.size >= 1) {
+        return if (functionAndData.run { isNotEmpty() }) {
             // functionAndData[0] = _fetchQueue
             functionAndData[0]
         } else null
